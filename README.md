@@ -1,6 +1,6 @@
 # 基于Android平台的移动流媒体播放器的开发
 主页界面如下  
-<img src="https://github.com/youcoding98/videoplay/blob/master/Picture/%E4%B8%BB%E9%A1%B5.png" height="450" width="250" align=center />
+<img src="https://github.com/youcoding98/FastVideo/blob/master/Picture/%E4%B8%BB%E9%A1%B5.png" height="450" width="250" align=center />
 
 ## 第一部分 课题相关介绍
 与普通播放器相比，流媒体播放器最主要的不同点在于其能够实现实时的视频播放，用户可以实现边加载边播放，不需要一次全下载完视频。
@@ -20,6 +20,7 @@ Android平台的优点
 
 ## 第二部分 系统分析及相应实现
 首先明确系统功能以及性能需求，之后对系统进行总体设计，将系统分为视频采集模块，视频播放模块以及视频裁剪模块。
+<img src="https://github.com/youcoding98/FastVideo/blob/master/Picture/%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%9B%BE.png" height="450" width="450" align=center />
 #### 需求分析
 1.基本需求：视频播放     
 （1）本地视频播放    
@@ -80,7 +81,7 @@ Android6.0发布以来，在权限上做出了很大的变动，不再是之前�
      mRecorder.start();  //开始录制
 ```
 4.停止录制，释放MediaRecorder以及相机资源   
-<img src="https://github.com/youcoding98/videoplay/blob/master/Picture/%E5%BD%95%E5%83%8F.png" height="450" width="250" align=center />
+<img src="https://github.com/youcoding98/FastVideo/blob/master/Picture/%E5%BD%95%E5%83%8F.png" height="450" width="250" align=center />
 #### 播放子系统
 1.本地视频播放    
 使用surfaceview＋MediaPlayer自定义播放器 播放本地视频   
@@ -104,7 +105,7 @@ surfaceDestroyed()
             }
         });
 ```
-<img src="https://github.com/youcoding98/videoplay/blob/master/Picture/%E6%9C%AC%E5%9C%B0.png" height="450" width="250" align=center />
+<img src="https://github.com/youcoding98/FastVideo/blob/master/Picture/%E6%9C%AC%E5%9C%B0.png" height="450" width="250" align=center />
 2.视频点播：被观众任意观看，每次都可从头播放   
 播放控件使用Android自带的 VideoView 控件，采用MediaController媒体控制器实现播放   
 (1)视频缓冲Gif加载     
