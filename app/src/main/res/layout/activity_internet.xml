@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/id_internetvideo_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="top"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:weightSum="1">
+
+        <EditText
+            android:id="@+id/id_internetUri"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="请输入视频地址"
+            android:layout_weight="1"
+            android:textColor="#00A1D6"
+            android:textSize="24sp"/>
+
+        <ImageButton
+            android:id="@+id/id_internetSure"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            app:srcCompat="@drawable/ic_sure"/>
+
+    </LinearLayout>
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/id_loading_gif"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:layout_gravity="center"
+        android:background="#0000"
+        android:visibility="gone"
+        android:src="@drawable/loading1" />
+    <VideoView
+        android:id="@+id/mVideoView"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

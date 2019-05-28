@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ge1"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/id_shouye"
+        android:layout_height="50dp">
+
+
+        <SearchView
+            android:id="@+id/id_title"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:maxEms="10"
+            android:iconifiedByDefault="false"
+            android:queryHint="请输入搜索内容" />
+
+        <ImageButton
+            android:id="@+id/btn_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@id/id_title"
+            android:background="#0000"
+            app:srcCompat="@drawable/ic_people" />
+        <ImageButton
+            android:id="@+id/btn_message"
+            android:layout_toRightOf="@id/id_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0000"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_message"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/h1"
+        android:layout_below="@id/id_shouye"
+        android:layout_width="180dp"
+        android:layout_height="250dp">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/picture11"/>
+        <RelativeLayout
+            android:layout_below="@id/imageView"
+            android:layout_width="180dp"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="本地"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/h2"
+        android:layout_below="@id/id_shouye"
+        android:layout_toRightOf="@id/h1"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:layout_marginLeft="5dp">
+
+        <ImageView
+            android:id="@+id/imageView_2"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/picture22"/>
+
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/imageView_2"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_start_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="点播" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/h3"
+        android:layout_width="365dp"
+        android:layout_height="250dp"
+        android:layout_below="@+id/h1">
+
+        <ImageView
+            android:id="@+id/imageView_3"
+            android:layout_width="365dp"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/picture33"/>
+
+        <RelativeLayout
+            android:layout_width="360dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/imageView_3"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_start_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="150dp"
+                android:layout_marginRight="5dp"
+                android:text="直播" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/btn_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#0000"
+            app:srcCompat="@drawable/ic_media_open" />
+
+        <ImageButton
+            android:id="@+id/btn_internet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/btn_location"
+            android:background="#0000"
+            app:srcCompat="@drawable/ic_internet" />
+
+        <ImageButton
+            android:id="@+id/btn_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/btn_internet"
+            android:background="#0000"
+            app:srcCompat="@drawable/ic_share1" />
+
+        <ImageButton
+            android:id="@+id/btn_cut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/btn_share"
+            android:background="#0000"
+            app:srcCompat="@drawable/ic_cut" />
+
+        <ImageButton
+            android:id="@+id/btn_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/btn_cut"
+            android:background="#0000"
+            app:srcCompat="@drawable/ic_camera" />
+    </RelativeLayout>
+</RelativeLayout>
