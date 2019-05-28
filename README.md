@@ -106,7 +106,31 @@ surfaceDestroyed()
         });
 ```
 <img src="https://github.com/youcoding98/FastVideo/blob/master/Picture/%E6%9C%AC%E5%9C%B0.png" height="450" width="250" align=center />
-2.视频点播：被观众任意观看，每次都可从头播放   
+
+2.视频点播（被用户任意观看，每次都可从头播放）  
+
+surfaceDestroyed()  
+```
+	 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+            @Override
+            public void onPrepared(MediaPlayer mp)
+            {
+                // 开始播放视频
+                mediaPlayer.start();
+                // 设置总时长
+                tvDuration.setText(mp.getDuration() / 1000 + "");
+                tvCurrentT.setText(mp.getCurrentPosition() / 1000 + "");
+                progressBar.setMax(mp.getDuration());
+                updateView();
+            }
+        });
+```
+<img src="https://github.com/youcoding98/FastVideo/blob/master/Picture/%E6%9C%AC%E5%9C%B0.png" height="450" width="250" align=center />
+
+```
+
+```
 播放控件使用Android自带的 VideoView 控件，采用MediaController媒体控制器实现播放   
 (1)视频缓冲Gif加载     
 ```
@@ -144,7 +168,7 @@ http://mirror.aarnet.edu.au/pub/TED-talks/911Mothers_2010W-480p.mp4
 
 ``` 
 
-<img src="https://github.com/youcoding98/videoplay/blob/master/Picture/%E7%82%B9%E6%92%AD.png" height="450" width="250" align=center />
+<img src="https://github.com/youcoding98/FastVideo/blob/master/Picture/%E7%82%B9%E6%92%AD.png" height="450" width="250" align=center />
 3.视频直播: 正在发生的画面     
 (1) ijkplayer简化    
 android studio集成ijkplayer，将其作为moudle导入我们需要使用播放器的工程project中，由于要实现简单的网络直播播放功能，这里生成fastvideoplay来将ijkplay的功能进行简化    
@@ -166,6 +190,26 @@ IjkVideoView 这个类是使用ijkplayer播放的View，这里为了操作方便
 		}
 ```
 (2) 网络直播视频处理
+
+surfaceDestroyed()  
+```
+	 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+            @Override
+            public void onPrepared(MediaPlayer mp)
+            {
+                // 开始播放视频
+                mediaPlayer.start();
+                // 设置总时长
+                tvDuration.setText(mp.getDuration() / 1000 + "");
+                tvCurrentT.setText(mp.getCurrentPosition() / 1000 + "");
+                progressBar.setMax(mp.getDuration());
+                updateView();
+            }
+        });
+```
+<img src="https://github.com/youcoding98/FastVideo/blob/master/Picture/%E6%9C%AC%E5%9C%B0.png" height="450" width="250" align=center />
+
 ```
  	videoPlayer = findViewById(R.id.fastvideo_player);
         play = findViewById(R.id.play);
@@ -175,7 +219,7 @@ IjkVideoView 这个类是使用ijkplayer播放的View，这里为了操作方便
         videoPlayer.setUrl("http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8");
 ```
 
-<img src="https://github.com/youcoding98/videoplay/blob/master/Picture/%E7%9B%B4%E6%92%AD.png" height="450" width="250" align=center />
+<img src="https://github.com/youcoding98/FastVideo/blob/master/Picture/%E7%9B%B4%E6%92%AD.png" height="450" width="250" align=center />
 4.播放功能的优化  
 （1）监控视频播放窗口的滑动，实现亮度加减，音量加减，快进和快退功能  
 以音量加减举例：   
