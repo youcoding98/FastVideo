@@ -267,7 +267,27 @@ private void setVolume(boolean flag)
     }
 
 ```   
-（2）动态切换全屏/原屏、横屏/竖屏的自由切换。       
+（2）动态切换全屏/原屏、横屏/竖屏的自由切换。   
+surfaceView创建完成再开始播放视频
+surfaceCreated()  
+surfaceChanged()  
+surfaceDestroyed()  
+```
+	 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+            @Override
+            public void onPrepared(MediaPlayer mp)
+            {
+                // 开始播放视频
+                mediaPlayer.start();
+                // 设置总时长
+                tvDuration.setText(mp.getDuration() / 1000 + "");
+                tvCurrentT.setText(mp.getCurrentPosition() / 1000 + "");
+                progressBar.setMax(mp.getDuration());
+                updateView();
+            }
+        });
+```
 利用全屏/原屏切换函数，即可自由切换全/原屏    
 ```
 public void fullScreenChange() {
