@@ -267,26 +267,34 @@ private void setVolume(boolean flag)
     }
 
 ```   
+
 （2）动态切换全屏/原屏、横屏/竖屏的自由切换。   
 surfaceView创建完成再开始播放视频
 surfaceCreated()  
 surfaceChanged()  
 surfaceDestroyed()  
 ```
-	 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-        {
-            @Override
-            public void onPrepared(MediaPlayer mp)
-            {
-                // 开始播放视频
-                mediaPlayer.start();
-                // 设置总时长
-                tvDuration.setText(mp.getDuration() / 1000 + "");
-                tvCurrentT.setText(mp.getCurrentPosition() / 1000 + "");
-                progressBar.setMax(mp.getDuration());
-                updateView();
-            }
-        });
+	public void fullScreenChange() {
+        SharedPreferences mPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        boolean fullScreen = mPreferences.getBoolean("fullScreen", false);
+        WindowManager.LayoutParams attrs = getWindow().getAttributes();
+        System.out.println("fullScreen的值:" + fullScreen);
+        if (fullScreen) {
+            attrs.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getWindow().setAttributes(attrs);
+            // 取消全屏设置
+            getWindow().clearFlags(
+                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            mPreferences.edit().putBoolean("fullScreen", false).commit();
+        } else {
+            attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+            getWindow().setAttributes(attrs);
+            getWindow().addFlags(
+                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            mPreferences.edit().putBoolean("fullScreen", true).commit();
+        }
+    }
 ```
 利用全屏/原屏切换函数，即可自由切换全/原屏    
 ```
