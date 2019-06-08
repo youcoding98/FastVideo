@@ -269,10 +269,7 @@ private void setVolume(boolean flag)
 ```   
 
 （2）动态切换全屏/原屏、横屏/竖屏的自由切换。   
-surfaceView创建完成再开始播放视频
-surfaceCreated()  
-surfaceChanged()  
-surfaceDestroyed()  
+利用全屏/原屏切换函数，即可自由切换全/原屏   
 ```
 	public void fullScreenChange() {
         SharedPreferences mPreferences = PreferenceManager
@@ -296,30 +293,7 @@ surfaceDestroyed()
         }
     }
 ```
-利用全屏/原屏切换函数，即可自由切换全/原屏    
-```
-public void fullScreenChange() {
-        SharedPreferences mPreferences = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        boolean fullScreen = mPreferences.getBoolean("fullScreen", false);
-        WindowManager.LayoutParams attrs = getWindow().getAttributes();
-        System.out.println("fullScreen的值:" + fullScreen);
-        if (fullScreen) {
-            attrs.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            getWindow().setAttributes(attrs);
-            // 取消全屏设置
-            getWindow().clearFlags(
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            mPreferences.edit().putBoolean("fullScreen", false).commit();
-        } else {
-            attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
-            getWindow().setAttributes(attrs);
-            getWindow().addFlags(
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            mPreferences.edit().putBoolean("fullScreen", true).commit();
-        }
-    }
-```  
+    
 对于横竖屏的切换：设置权限，在AndroidManifest.xml中对Activity属性进行设置android:configChanges属性   
 ```
      android:configChanges="keyboardHidden|orientation|screenSize"
@@ -332,7 +306,8 @@ public void fullScreenChange() {
      intent.setAction(Intent.ACTION_GET_CONTENT);
      startActivityForResult(intent, 1);
 ```
-之后从媒体管理器返回，利用mediaUri = data.getData()获取本地视频文件路径，然后在视频播放端使用VideoView进行播放。  
+之后从媒体管理器返回，利用mediaUri = data.getData()获取本地视频文件路径，然后在视频播放端使用VideoView进行播放。    
+
 #### 裁剪子系统
 代码详见：https://github.com/iknow4/Android-Video-Trimmer   
 (1)FFmpeg移植到Android平台   
