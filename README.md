@@ -128,9 +128,7 @@ surfaceDestroyed()
 ```
 
 
-```
 
-```
 播放控件使用Android自带的 VideoView 控件，采用MediaController媒体控制器实现播放   
 (1)视频缓冲Gif加载     
 ```
